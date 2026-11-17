@@ -182,3 +182,11 @@ p { margin: 0 0 1em; }
   .site-header, .site-footer, .tape { display: none; }
   body { background: #fff; }
 }
+
+/* ---------- Photos and videos on research themes ---------- */
+.media-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin: 1.4em 0 .4em; }
+.media { margin: 0; }
+.media img, .media video { width: 100%; display: block; border-radius: 3px; border: 1px solid var(--line); background: var(--ink); }
+.media .embed { position: relative; aspect-ratio: 16 / 9; }
+.media .embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; border-radius: 3px; }
+.media figcaption { font-size: .88rem; color: var(--muted); margin-top: 6px; line-height: 1.4; }

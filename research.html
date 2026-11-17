@@ -14,6 +14,7 @@ lede: "We develop control and learning methods for networks of robots that work 
   <ul>
     {% for pt in t.points %}<li>{{ pt }}</li>{% endfor %}
   </ul>
+  {% include media.html items=t.media %}
   {% assign has_related = false %}
   {% for p in site.data.publications %}{% if p.themes contains t.id and p.type != "patent" %}{% assign has_related = true %}{% endif %}{% endfor %}
   {% if has_related %}

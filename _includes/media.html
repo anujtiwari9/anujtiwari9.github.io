@@ -1,0 +1,19 @@
+{% comment %}Shows photos and videos listed under "media:" for a research theme.{% endcomment %}
+{% if include.items %}
+<div class="media-grid">
+  {% for m in include.items %}
+  <figure class="media">
+    {% if m.type == "image" %}
+      <img src="{{ m.src | relative_url }}" alt="{{ m.alt | default: m.caption }}" loading="lazy">
+    {% elsif m.type == "youtube" %}
+      <div class="embed"><iframe src="https://www.youtube-nocookie.com/embed/{{ m.id }}" title="{{ m.caption | default: 'Video' }}" loading="lazy" allowfullscreen></iframe></div>
+    {% elsif m.type == "video" %}
+      <video controls preload="metadata"{% if m.poster %} poster="{{ m.poster | relative_url }}"{% endif %}>
+        <source src="{{ m.src | relative_url }}" type="video/mp4">
+      </video>
+    {% endif %}
+    {% if m.caption %}<figcaption>{{ m.caption }}</figcaption>{% endif %}
+  </figure>
+  {% endfor %}
+</div>
+{% endif %}

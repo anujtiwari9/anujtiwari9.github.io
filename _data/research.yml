@@ -1,4 +1,5 @@
 # Research themes. Used on the home page (title + summary) and the Research page (everything).
+# To add photos or videos to a theme, add a "media:" list under it (see the example at the bottom of this file).
 # "id" links a theme to the publications that list it in their "themes" field.
 - id: manipulation
   tag: "Robotic manipulation"
@@ -57,3 +58,17 @@
     - "Constant-spacing connected vehicle platoons that tolerate communication delays"
     - "Coverage and formation control of multi-UAV networks"
     - "Safe reinforcement learning for autonomous driving"
+
+# ---------------------------------------------------------------------------
+# EXAMPLE: photos and videos for a theme. Paste under the theme (same indentation as "points:").
+#   media:
+#     - type: image
+#       src: "/assets/img/research/assembly-cell.jpg"
+#       caption: "Dual-arm assembly cell at IIT Madras"
+#     - type: youtube          # id is the part after v= in the YouTube link
+#       id: "dQw4w9WgXcQ"
+#       caption: "Robots carrying a flexible plank without communication"
+#     - type: video            # an .mp4 you upload to assets/video/ (keep under ~25 MB)
+#       src: "/assets/video/transport.mp4"
+#       poster: "/assets/img/research/transport-poster.jpg"
+#       caption: "Decentralized transport experiment"

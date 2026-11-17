@@ -44,3 +44,11 @@ Keep the quotation marks around text.
 
 ## Photos
 Put your photo at `assets/img/profile.jpg` and set `photo: "/assets/img/profile.jpg"` in `profile.yml`. For students, set `photo:` in `team.yml` the same way.
+
+## Photos and videos on research themes
+1. Upload images to `assets/img/research/` (JPG, ideally under 500 KB each) and videos to `assets/video/` (MP4, under about 25 MB).
+2. In `_data/research.yml`, add a `media:` list under the theme. A commented example is at the bottom of that file.
+3. For long videos, upload to YouTube and use `type: youtube` with the video id instead. This keeps the repo small.
+
+## Changing the look
+Open `assets/css/style.css`. The block at the top (`:root`) holds all colours and fonts. Change a value there and every page follows. To change fonts, edit the Google Fonts link in `_layouts/default.html` and the `--display` and `--body` names in `style.css`.
