@@ -1,0 +1,27 @@
+---
+layout: page
+title: People
+permalink: /people/
+eyebrow: "DIRo Lab"
+lede: "Students and researchers in the Distributed Intelligence & Robotics Lab."
+---
+{% for g in site.data.team %}
+<h2>{{ g.group }}</h2>
+<div class="people">
+  {% for m in g.members %}
+  {% assign parts = m.name | split: " " %}
+  <article class="person">
+    {% if m.photo and m.photo != "" %}
+    <img class="avatar" src="{{ m.photo | relative_url }}" alt="{{ m.name }}">
+    {% else %}
+    <div class="avatar" aria-hidden="true">{{ parts.first | slice: 0, 1 }}{% if parts.size > 1 %}{{ parts.last | slice: 0, 1 }}{% endif %}</div>
+    {% endif %}
+    <div>
+      <h3>{{ m.name }}</h3>
+      <p>{{ m.topic }}</p>
+      <span class="yrs">{{ m.years }}</span>
+    </div>
+  </article>
+  {% endfor %}
+</div>
+{% endfor %}

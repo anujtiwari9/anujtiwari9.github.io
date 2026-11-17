@@ -1,0 +1,39 @@
+---
+layout: page
+title: Teaching & Service
+permalink: /teaching/
+eyebrow: "Courses, talks and community"
+lede: "Courses taught, invited talks and workshops, and professional service."
+---
+<h2>Courses</h2>
+{% for inst in site.data.teaching %}
+<h3>{{ inst.institution }}</h3>
+<ul class="courses">
+  {% for c in inst.courses %}
+  <li>
+    <span class="code">{{ c.code }}</span>
+    <div>
+      <strong>{{ c.title }}</strong>
+      <div class="meta">{{ c.role }} · {{ c.term }}</div>
+      {% if c.detail %}<div class="meta">{{ c.detail }}</div>{% endif %}
+    </div>
+  </li>
+  {% endfor %}
+</ul>
+{% endfor %}
+
+<h2>Invited talks and workshops</h2>
+<ul class="courses">
+  {% for t in site.data.talks %}
+  <li>
+    <span class="code">{{ t.year }}</span>
+    <div>
+      <strong>{% if t.link %}<a href="{{ t.link }}">{{ t.title }}</a>{% else %}{{ t.title }}{% endif %}</strong>
+      <div class="meta">{{ t.venue }}</div>
+    </div>
+  </li>
+  {% endfor %}
+</ul>
+
+<h2>Professional service</h2>
+<p>External reviewer for Automatica; IEEE Transactions on Mechatronics; IEEE Transactions on Control of Network Systems; Journal of Dynamic Systems, Measurement, and Control; International Journal of Intelligent Robotics and Applications; Transportation Research Part C; Conference on Decision and Control; Dynamic Systems and Control Conference; and the Indian Control Conference.</p>

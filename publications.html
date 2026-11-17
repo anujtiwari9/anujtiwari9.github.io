@@ -1,0 +1,31 @@
+---
+layout: page
+title: Publications
+permalink: /publications/
+eyebrow: "Papers and patents"
+lede: "Journal papers, conference papers, preprints and patents. Newest first within each group."
+---
+{% assign types = "preprint,journal,conference,patent" | split: "," %}
+
+<ul class="jump">
+  {% for ty in types %}
+  {% assign items = site.data.publications | where: "type", ty %}
+  {% if items.size > 0 %}
+  <li><a href="#{{ ty }}">
+    {% case ty %}{% when "preprint" %}Preprints{% when "journal" %}Journal papers{% when "conference" %}Conference papers{% when "patent" %}Patents{% endcase %}
+    ({{ items.size }})</a></li>
+  {% endif %}
+  {% endfor %}
+</ul>
+
+{% for ty in types %}
+{% assign items = site.data.publications | where: "type", ty %}
+{% if items.size > 0 %}
+<h2 id="{{ ty }}">{% case ty %}{% when "preprint" %}Preprints{% when "journal" %}Journal papers{% when "conference" %}Refereed conference papers{% when "patent" %}Patents{% endcase %}</h2>
+<ul class="pubs">
+  {% for p in items %}{% include pub.html p=p %}{% endfor %}
+</ul>
+{% endif %}
+{% endfor %}
+
+<p>Full citation counts and profiles: see the links in the footer.</p>

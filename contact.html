@@ -1,0 +1,31 @@
+---
+layout: page
+title: Contact
+permalink: /contact/
+eyebrow: "Get in touch"
+lede: "The best way to reach us is email."
+---
+<div class="contact-grid">
+  <div class="card">
+    <span class="tag">Email and phone</span>
+    <p><a href="mailto:{{ site.data.profile.email }}">{{ site.data.profile.email }}</a></p>
+    <p>{{ site.data.profile.phone }}</p>
+  </div>
+  <div class="card">
+    <span class="tag">Office</span>
+    <p>{{ site.data.profile.office }}<br>
+       {{ site.data.profile.department }}<br>
+       {{ site.data.profile.institute }}<br>
+       {{ site.data.profile.address }}</p>
+  </div>
+  <div class="card">
+    <span class="tag">Profiles</span>
+    <p>
+      {% if site.data.profile.links.google_scholar != "" %}<a href="{{ site.data.profile.links.google_scholar }}">Google Scholar</a><br>{% endif %}
+      {% if site.data.profile.links.linkedin != "" %}<a href="{{ site.data.profile.links.linkedin }}">LinkedIn</a><br>{% endif %}
+      {% if site.data.profile.links.github != "" %}<a href="{{ site.data.profile.links.github }}">GitHub</a><br>{% endif %}
+      {% if site.data.profile.links.orcid != "" %}<a href="{{ site.data.profile.links.orcid }}">ORCID</a><br>{% endif %}
+      <a href="{{ site.data.profile.links.old_site }}">Previous lab site (Google Sites)</a>
+    </p>
+  </div>
+</div>

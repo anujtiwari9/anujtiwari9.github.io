@@ -1,0 +1,18 @@
+# Site settings. Edit the text between the quotes; leave the keys alone.
+title: "Anuj K. Tiwari"
+description: "Assistant Professor, Mechanical Engineering, IIT Madras. Networked robotics, robotic manipulation and multi-robot coordination."
+lang: en
+
+# For a user site (repo named <username>.github.io) leave both of these empty.
+# For a project site (any other repo name) set baseurl to "/<repo-name>".
+url: ""
+baseurl: ""
+
+markdown: kramdown
+
+# Files that live in the repo but should not appear on the website.
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor

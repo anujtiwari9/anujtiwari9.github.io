@@ -1,0 +1,92 @@
+---
+layout: default
+title: Home
+permalink: /
+---
+<section class="hero" aria-label="Introduction">
+  <canvas id="hero-canvas" aria-hidden="true"></canvas>
+  <div class="hero-copy">
+    <span class="eyebrow">{{ site.data.profile.lab_name }} · IIT Madras</span>
+    <h1>Robots that move, hold and haul as one network.</h1>
+    <p class="lede">We build control and learning methods for teams of robots: contact-rich manipulation, cooperative handling of objects, and fleet coordination for autonomous warehouses.</p>
+    <div class="btns">
+      <a class="btn btn-primary" href="{{ '/research/' | relative_url }}">Explore our research</a>
+      <a class="btn btn-ghost" href="{{ '/join/' | relative_url }}">Join the lab</a>
+    </div>
+  </div>
+</section>
+<div class="tape" aria-hidden="true"></div>
+
+<section class="section wrap">
+  <div class="about">
+    <div>
+      {% if site.data.profile.photo != "" %}
+      <img class="portrait" src="{{ site.data.profile.photo | relative_url }}" alt="Portrait of {{ site.data.profile.name }}">
+      {% else %}
+      <div class="portrait" aria-hidden="true">AT</div>
+      {% endif %}
+    </div>
+    <div>
+      <span class="eyebrow">About</span>
+      <h2>{{ site.data.profile.name }}</h2>
+      <p>{{ site.data.profile.bio }}</p>
+      <ul class="facts">
+        <li><b>Position</b>{{ site.data.profile.title }}, {{ site.data.profile.chair }}</li>
+        <li><b>Department</b>{{ site.data.profile.department }}, {{ site.data.profile.institute }}</li>
+        <li><b>Office</b>{{ site.data.profile.office }} · <a href="mailto:{{ site.data.profile.email }}">{{ site.data.profile.email }}</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section wrap">
+  <div class="section-head">
+    <h2>What we work on</h2>
+    <a class="more" href="{{ '/research/' | relative_url }}">All research →</a>
+  </div>
+  <div class="cards">
+    {% for t in site.data.research %}
+    <article class="card">
+      <span class="tag">{{ t.tag }}</span>
+      <h3>{{ t.title }}</h3>
+      <p>{{ t.summary }}</p>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="section wrap">
+  <div class="two">
+    <div>
+      <div class="section-head"><h2>News</h2></div>
+      <ul class="news">
+        {% for n in site.data.news limit: 5 %}
+        <li>
+          <time>{{ n.date }}</time>
+          <p>{{ n.text }}{% if n.link %} <a href="{{ n.link }}">Read</a>{% endif %}</p>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div>
+      <div class="section-head">
+        <h2>Selected publications</h2>
+        <a class="more" href="{{ '/publications/' | relative_url }}">All →</a>
+      </div>
+      <ul class="pubs compact">
+        {% assign featured = site.data.publications | where: "featured", true %}
+        {% for p in featured %}{% include pub.html p=p %}{% endfor %}
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section wrap">
+  <div class="join">
+    <div>
+      <h2>Work with us</h2>
+      <p>We are looking for students and collaborators interested in robot learning, multi-robot systems and warehouse automation, from academia and industry.</p>
+    </div>
+    <a class="btn btn-primary" href="{{ '/join/' | relative_url }}">See how to join</a>
+  </div>
+</section>

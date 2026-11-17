@@ -1,0 +1,32 @@
+---
+layout: page
+title: Research
+permalink: /research/
+eyebrow: "DIRo Lab"
+lede: "We develop control and learning methods for networks of robots that work on real engineering tasks: assembling parts, carrying objects together, and running warehouses."
+---
+{% for t in site.data.research %}
+<section class="theme" id="{{ t.id }}">
+  <span class="tag">{{ t.tag }}</span>
+  <h2>{{ t.title }}</h2>
+  <p>{{ t.body }}</p>
+  <h4>Directions</h4>
+  <ul>
+    {% for pt in t.points %}<li>{{ pt }}</li>{% endfor %}
+  </ul>
+  {% assign has_related = false %}
+  {% for p in site.data.publications %}{% if p.themes contains t.id and p.type != "patent" %}{% assign has_related = true %}{% endif %}{% endfor %}
+  {% if has_related %}
+  <h4>Related papers</h4>
+  <ul class="related">
+    {% for p in site.data.publications %}
+    {% if p.themes contains t.id and p.type != "patent" %}
+    <li>{{ p.title }} <span style="color:var(--muted)">({{ p.year }})</span></li>
+    {% endif %}
+    {% endfor %}
+  </ul>
+  {% endif %}
+</section>
+{% endfor %}
+
+<p>Earlier lab pages and project videos are on the <a href="{{ site.data.profile.links.old_site }}">previous lab site</a>.</p>
