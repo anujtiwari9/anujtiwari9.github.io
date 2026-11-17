@@ -1,0 +1,59 @@
+# Research themes. Used on the home page (title + summary) and the Research page (everything).
+# "id" links a theme to the publications that list it in their "themes" field.
+- id: manipulation
+  tag: "Robotic manipulation"
+  title: "Learning and control for contact-rich manipulation"
+  summary: "Planning and control for robots that assemble, disassemble and form parts under task uncertainty."
+  body: >-
+    Our current focus is semi-autonomous multi-robot assembly (manufacturing) and disassembly
+    (recycling and remanufacturing) cells. Contact-rich phases, such as insertion with tight
+    tolerances, are where programmed motions fail. We study how robots can detect these failures
+    and recover, for example with task-aware Dynamic Movement Primitives that stay reliable when
+    grasp configuration or contact forces change.
+  points:
+    - "Failure detection and recovery for assembly under task uncertainty"
+    - "Robo-forming and robot-assisted incremental forming: preform shape design and force control"
+    - "Kinematic calibration and learning for industrial robot accuracy"
+    - "Forming of composite structures with cooperating robot arms (Boeing Advanced Research Center)"
+
+- id: coordination
+  tag: "Multi-robot coordination"
+  title: "Multi-robot teams for cooperative manipulation"
+  summary: "Decentralized control so that teams of robots can carry, shape and place objects together."
+  body: >-
+    Teams of robots can handle objects that are too large, flexible or heavy for a single arm or
+    mobile robot. We design decentralized controllers that need little or no communication, keep the
+    object from deforming, and remain stable under sensing and actuation delays.
+  points:
+    - "Communication-free decentralized transport of flexible objects"
+    - "Shared-workspace path planning for cooperative manipulators"
+    - "Learning from demonstration in cooperative robots"
+    - "Distributed material handling for manufacturing"
+
+- id: warehouses
+  tag: "Autonomous warehouses"
+  title: "Coordination of robot fleets in warehouses"
+  summary: "Task allocation and learning-based coordination for fleets of mobile robots."
+  body: >-
+    Warehouse fleets must decide who does which task, when to charge, and how to avoid blocking
+    one another. We study hierarchical, battery-aware task allocation and multi-agent reinforcement
+    learning for autonomous warehouses. Details of ongoing projects will be added here.
+  points:
+    - "Battery-aware hierarchical task allocation for multi-robot systems"
+    - "Multi-agent reinforcement learning for autonomous warehouses"
+    - "Reinforcement learning for conflict resolution among autonomous agents"
+
+- id: networks
+  tag: "Networked control"
+  title: "Cohesive networks under delays"
+  summary: "Control theory for robot networks that must stay together while sensing and acting with delay."
+  body: >-
+    Delays in sensing, actuation and communication can break the cohesion of a robot network.
+    Our work on delayed self-reinforcement gives stability and performance guarantees for
+    decentralized transitions, and applies them to vehicle platoons, mixed traffic at intersections,
+    swarm information propagation and UAV networks.
+  points:
+    - "Delayed self-reinforcement for fast, cohesive transitions"
+    - "Constant-spacing connected vehicle platoons that tolerate communication delays"
+    - "Coverage and formation control of multi-UAV networks"
+    - "Safe reinforcement learning for autonomous driving"

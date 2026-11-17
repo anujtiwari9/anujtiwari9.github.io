@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: 'en' }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if page.title and page.url != "/" %}{{ page.title | escape }} | {% endif %}{{ site.title }}</title>
+  <meta name="description" content="{{ page.description | default: site.description }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=JetBrains+Mono:wght@500&family=Public+Sans:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="bar wrap">
+      <a class="brand" href="{{ '/' | relative_url }}">
+        <span class="brand-name">{{ site.data.profile.name }}</span>
+        <span class="brand-sub">{{ site.data.profile.lab_short }} · IIT Madras</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav id="site-nav" class="site-nav" aria-label="Main">
+        <ul>
+          {% for item in site.data.navigation %}
+          <li><a href="{{ item.url | relative_url }}"{% if page.url == item.url %} aria-current="page"{% endif %}>{{ item.title }}</a></li>
+          {% endfor %}
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div id="main">
+    {{ content }}
+  </div>
+
+  <footer class="site-footer">
+    <div class="wrap foot-grid">
+      <div>
+        <p class="foot-name">{{ site.data.profile.name }}</p>
+        <p>{{ site.data.profile.title }}, {{ site.data.profile.department }}<br>
+           {{ site.data.profile.institute }}, {{ site.data.profile.address }}</p>
+      </div>
+      <div>
+        <p><a href="mailto:{{ site.data.profile.email }}">{{ site.data.profile.email }}</a></p>
+        <p class="foot-links">
+          {% if site.data.profile.links.google_scholar != "" %}<a href="{{ site.data.profile.links.google_scholar }}">Google Scholar</a>{% endif %}
+          {% if site.data.profile.links.linkedin != "" %}<a href="{{ site.data.profile.links.linkedin }}">LinkedIn</a>{% endif %}
+          {% if site.data.profile.links.github != "" %}<a href="{{ site.data.profile.links.github }}">GitHub</a>{% endif %}
+          {% if site.data.profile.links.orcid != "" %}<a href="{{ site.data.profile.links.orcid }}">ORCID</a>{% endif %}
+        </p>
+      </div>
+    </div>
+    <div class="wrap foot-base">
+      <span>© {{ site.time | date: "%Y" }} {{ site.data.profile.name }}</span>
+      <span>Last updated {{ site.time | date: "%b %Y" }}</span>
+    </div>
+  </footer>
+
+  <script src="{{ '/assets/js/site.js' | relative_url }}"></script>
+</body>
+</html>

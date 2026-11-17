@@ -1,0 +1,54 @@
+# Lab members. Add a person by copying a "- name:" block.
+# photo (optional): e.g. "/assets/img/team/suman.jpg"; without one, initials are shown.
+# Move people to the Alumni group when they graduate.
+
+- group: "Ph.D. students"
+  members:
+    - name: "Suman Midda"
+      topic: "Safe reinforcement learning for autonomous driving"
+      years: "2024–"
+    - name: "Atish Dehury"
+      topic: "Force control for robot-based incremental forming"
+      years: "2024–"
+    - name: "Shriman Keshri"
+      topic: "Multi-agent reinforcement learning for autonomous warehouses"
+      years: "2024–"
+
+- group: "M.S. by Research"
+  members:
+    - name: "Shivansh Agarwal"
+      topic: "Distributed field mapping using UAV networks"
+      years: "2024–"
+
+- group: "M.Tech. students"
+  members:
+    - name: "Mukesh Kanna"
+      topic: "Coverage control of multi-UAV networks"
+      years: "2024–26"
+    - name: "Shubham Saini"
+      topic: "Learning from demonstration in cooperative robots"
+      years: "2024–26"
+
+- group: "Interdisciplinary Dual Degree (Robotics)"
+  members:
+    - name: "Abhishek Dhalpe"
+      topic: "Formation control of multi-robot networks"
+      years: "2024–"
+    - name: "Abdullah K"
+      topic: "Shared control of multi-UAV network for payload transport"
+      years: "2025–"
+    - name: "Swapnil Mehta"
+      topic: "Precision drone landing on moving targets"
+      years: "2025–"
+    - name: "Sai Charan"
+      topic: "Reinforcement learning for autonomous conflict resolution"
+      years: "2025–"
+
+- group: "Alumni"
+  members:
+    - name: "Yash Pathak"
+      topic: "M.Tech. · Path planning for robot manipulators in shared workspaces"
+      years: "2023–25"
+    - name: "Venkatesh"
+      topic: "M.Tech. · Position control of cooperative robots in DSIF"
+      years: "2023–25"

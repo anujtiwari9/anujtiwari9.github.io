@@ -1,0 +1,179 @@
+# One entry per publication, NEWEST FIRST within each type.
+# type:     preprint | journal | conference | patent
+# themes:   any of manipulation, coordination, warehouses, networks (links the paper to a research theme)
+# featured: true  -> also shown in "Selected publications" on the home page
+# doi:      just the DOI (no https://doi.org/ prefix). link: any other URL (arXiv, PDF, etc.)
+# Write your own name as **A. Tiwari** so it appears in bold.
+
+# ---------- Preprints ----------
+- type: preprint
+  year: 2026
+  title: "Task aware Dynamic Movement Primitives for failure detection and recovery in contact rich manipulation"
+  authors: "B. A., S. Shafi, K. Himavarshini, **A. Tiwari**"
+  venue: "arXiv:2609.23151"
+  link: "https://arxiv.org/pdf/2609.23151"
+  themes: [manipulation]
+  featured: true
+
+# ---------- Journal papers ----------
+- type: journal
+  year: 2025
+  title: "Mathematical approach to design preform for multi stage robot assisted incremental forming"
+  authors: "S. R. Palwai, S. Bharti, **A. K. Tiwari**, H. Krishnaswamy, S. K. Gurunathan"
+  venue: "International Journal of Material Forming"
+  doi: "10.1007/s12289-025-01927-2"
+  themes: [manipulation]
+  featured: true
+- type: journal
+  year: 2024
+  title: "Communication-free decentralized controller design for flexible object transport"
+  authors: "Y. Gombo, **A. Tiwari**, M. Safwat, H. Chang, S. Devasia"
+  venue: "IEEE/ASME Transactions on Mechatronics"
+  doi: "10.1109/TMECH.2024.3399120"
+  themes: [coordination, manipulation]
+  featured: true
+- type: journal
+  year: 2023
+  title: "Delayed self-reinforcement to reduce deformation during decentralized flexible-object transport"
+  authors: "Y. Gombo, **A. Tiwari**, M. Safwat, H. Chang, S. Devasia"
+  venue: "IEEE Transactions on Robotics"
+  doi: "10.1109/TRO.2023.3343997"
+  themes: [coordination, networks]
+  featured: true
+- type: journal
+  year: 2023
+  title: "Increasing traffic capacity of mixed traffic at signalized traffic intersections using delayed self reinforcement"
+  authors: "Y. Lin, **A. Tiwari**, B. Fabien, J. Ban, S. Devasia"
+  venue: "Transportation Research Part C: Emerging Technologies"
+  doi: "10.1016/j.trc.2023.104403"
+  themes: [networks]
+- type: journal
+  year: 2023
+  title: "Data-based stiffness estimation for control of robot-workpiece elastic interactions"
+  authors: "L. McCann, Y. Gombo, **A. Tiwari**, J. Garbini, S. Devasia"
+  venue: "ASME Letters in Dynamic Systems and Control"
+  doi: "10.1115/1.4063606"
+  themes: [manipulation]
+- type: journal
+  year: 2023
+  title: "Low distortion information propagation with noise suppression in swarm networks"
+  authors: "**A. Tiwari**, S. Devasia, J. J. Riley"
+  venue: "Proceedings of the National Academy of Sciences (PNAS)"
+  doi: "10.1073/pnas.2219948120"
+  themes: [networks]
+  featured: true
+- type: journal
+  year: 2022
+  title: "Constant-spacing connected platoons with robustness to communication delays"
+  authors: "Y. Lin, **A. Tiwari**, B. Fabien, S. Devasia"
+  venue: "IEEE Transactions on Intelligent Transportation Systems"
+  doi: "10.1109/TITS.2022.3224635"
+  themes: [networks]
+- type: journal
+  year: 2022
+  title: "Decentralized cohesive response during transitions for higher-order agents under network delays"
+  authors: "**A. Tiwari**, S. Devasia"
+  venue: "IEEE Transactions on Automatic Control"
+  doi: "10.1109/TAC.2022.3183035"
+  themes: [networks]
+- type: journal
+  year: 2021
+  title: "Rapid transitions with robust accelerated delayed-self-reinforcement for consensus-based networks"
+  authors: "**A. Tiwari**, S. Devasia"
+  venue: "IEEE Transactions on Control Systems Technology"
+  doi: "10.1109/TCST.2020.3032853"
+  themes: [networks]
+- type: journal
+  year: 2021
+  title: "Accelerated-gradient-based flexible-object transport with decentralized robot teams"
+  authors: "Y. Gombo, **A. Tiwari**, S. Devasia"
+  venue: "IEEE Robotics and Automation Letters"
+  doi: "10.1109/LRA.2020.3036569"
+  themes: [coordination]
+- type: journal
+  year: 2017
+  title: "Online damage detection using recursive principal component analysis"
+  authors: "M. Krishnan, B. Bhowmick, **A. Tiwari**, B. Hazra"
+  venue: "Smart Materials and Structures"
+  doi: "10.1088/1361-665X/aa7220"
+
+# ---------- Refereed conference papers ----------
+- type: conference
+  year: 2025
+  title: "Enhancement of position accuracy of an industrial robot through a combination of kinematic calibration and machine learning"
+  authors: ""
+  venue: "AIR 2025, 7th International Conference of The Robotics Society"
+  themes: [manipulation]
+- type: conference
+  year: 2024
+  title: "Battery-aware hierarchical task allocation in multi-robot systems for intelligent warehouse control"
+  authors: "P. Advaith, **A. Tiwari**"
+  venue: "10th Indian Control Conference, IISER Bhopal"
+  themes: [warehouses]
+- type: conference
+  year: 2024
+  title: "A novel method to design preform shape for robo-forming"
+  authors: "S. R. Palwai, S. Bharti, **A. K. Tiwari**, H. Krishnaswamy"
+  venue: "10th International Conference on Control, Decision and Information Technologies"
+  themes: [manipulation]
+- type: conference
+  year: 2023
+  title: "Personalized routing using crowdsourced connected vehicle data"
+  authors: "**A. Tiwari**, K. Berntorp, S. Di Cairano, M. Menner"
+  venue: "7th IEEE Conference on Control Technology and Applications"
+  themes: [networks]
+- type: conference
+  year: 2022
+  title: "Safely increasing capacity of traffic intersections with mixed autonomous vehicles using delayed self reinforcement"
+  authors: "Y. Lin, **A. Tiwari**, B. Fabien, S. Devasia"
+  venue: "8th Indian Control Conference"
+  themes: [networks]
+- type: conference
+  year: 2021
+  title: "Improving network's transition cohesion by approximating strongly damped waves using delayed self reinforcement"
+  authors: "**A. Tiwari**, Y. Gombo, S. Devasia"
+  venue: "7th Indian Control Conference"
+  themes: [networks]
+- type: conference
+  year: 2021
+  title: "Communication-free cohesive flexible-object transport using decentralized robot networks"
+  authors: "Y. Gombo, **A. Tiwari**, S. Devasia"
+  venue: "American Control Conference"
+  themes: [coordination]
+- type: conference
+  year: 2019
+  title: "Cohesive velocity transitions in robotic platoons using Nesterov-type accelerated delayed self reinforcement (A-DSR)"
+  authors: "**A. Tiwari**, S. Devasia"
+  venue: "6th Indian Control Conference"
+  themes: [networks]
+- type: conference
+  year: 2016
+  title: "Quantitative phase measurement for the damage detection in piezoelectric crystal using angularly placed multiple inter digital transducers"
+  authors: "A. Habib, A. Ahmad, S. Wagle, B. S. Ahluwalia, F. Melandsø, **A. Tiwari**, D. S. Mehta"
+  venue: "IEEE International Ultrasonics Symposium (IUS)"
+
+# ---------- Patents ----------
+- type: patent
+  year: ""
+  title: "Method for development of preform shapes for incremental forming and roboforming applications and preforming devices"
+  authors: "H. Krishnaswamy, **A. K. Tiwari**, S. Bharti, S. R. Palwai"
+  venue: "Indian Patent IN 581507 (granted)"
+  themes: [manipulation]
+- type: patent
+  year: ""
+  title: "Stringer handling and forming system"
+  authors: ""
+  venue: "United States patent application"
+  themes: [manipulation]
+- type: patent
+  year: 2023
+  title: "Constant-spacing connected platoons with robustness to communication delays"
+  authors: "Y. Lin, S. Devasia, **A. Tiwari**, B. Fabien"
+  venue: "United States patent application PCT/US2023/068257"
+  themes: [networks]
+- type: patent
+  year: 2022
+  title: "Method for controlling autonomous agents using self-reinforcement"
+  authors: "S. Devasia, **A. Tiwari**"
+  venue: "United States Patent US11435742B2 (granted 6 Sep 2022)"
+  themes: [networks]

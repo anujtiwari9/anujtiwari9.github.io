@@ -1,0 +1,35 @@
+# Your identity and contact details. Used in the header, footer, home page and contact page.
+name: "Anuj K. Tiwari"
+title: "Assistant Professor"
+chair: "Chandramouli P Early Career Chair"
+department: "Department of Mechanical Engineering"
+institute: "Indian Institute of Technology Madras"
+address: "Chennai 600036, India"
+
+lab_name: "Distributed Intelligence & Robotics Lab"
+lab_short: "DIRo Lab"
+
+email: "anujt@iitm.ac.in"
+phone: "+91 44 2257 4659"
+office: "MES 102"
+
+# Optional: put a photo at assets/img/profile.jpg and set photo to "/assets/img/profile.jpg"
+photo: ""
+
+# Fill in any of these URLs; empty ones are hidden automatically.
+links:
+  google_scholar: ""
+  linkedin: ""
+  github: ""
+  orcid: ""
+  old_site: "https://sites.google.com/view/anujtiwariuw/home"
+
+# Short biography shown on the home page (plain text or simple HTML).
+bio: >-
+  I am an Assistant Professor in the Department of Mechanical Engineering at IIT Madras,
+  where I lead the Distributed Intelligence &amp; Robotics (DIRo) Lab. My group develops
+  control and learning methods for networks of robots, with a focus on contact-rich
+  manipulation, cooperative handling of objects, and multi-robot coordination for
+  autonomous warehouses. I received my Ph.D. in Mechanical Engineering from the University
+  of Washington, Seattle, and worked at the Boeing Advanced Research Center and Mitsubishi
+  Electric Research Laboratories before joining IIT Madras in 2023.

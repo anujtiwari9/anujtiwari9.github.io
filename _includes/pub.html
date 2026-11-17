@@ -1,0 +1,14 @@
+<li class="pub">
+  <span class="pub-year">{{ include.p.year }}</span>
+  <div class="pub-body">
+    <p class="pub-title">{{ include.p.title }}</p>
+    {% if include.p.authors != "" and include.p.authors %}<p class="pub-authors">{{ include.p.authors | markdownify | remove: "<p>" | remove: "</p>" | strip }}</p>{% endif %}
+    <p class="pub-venue"><em>{{ include.p.venue }}</em></p>
+    {% if include.p.doi or include.p.link %}
+    <p class="pub-links">
+      {% if include.p.doi %}<a href="https://doi.org/{{ include.p.doi }}">DOI</a>{% endif %}
+      {% if include.p.link %}<a href="{{ include.p.link }}">Link</a>{% endif %}
+    </p>
+    {% endif %}
+  </div>
+</li>

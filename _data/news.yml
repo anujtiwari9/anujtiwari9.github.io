@@ -1,0 +1,14 @@
+# Newest first. Add a new item at the TOP.
+# Fields: date (any text), text, link (optional)
+- date: "2026"
+  text: "Preprint: Task-aware Dynamic Movement Primitives for failure detection and recovery in contact-rich manipulation."
+  link: "https://arxiv.org/pdf/2609.23151"
+- date: "2025"
+  text: "Awarded the ANRF Prime Minister Early Career Grant for 2025–28."
+- date: "2025"
+  text: "New paper in the International Journal of Material Forming on preform design for multi-stage robot-assisted incremental forming."
+  link: "https://doi.org/10.1007/s12289-025-01927-2"
+- date: "Dec 2024"
+  text: "Invited talk on material handling using multi-robot systems, Institute of Indian Foundrymen (NCSD)."
+- date: "2024"
+  text: "Paper on battery-aware task allocation for intelligent warehouse control accepted at the 10th Indian Control Conference."

@@ -1,0 +1,15 @@
+# Menu items, in order. To add a page: create the page, then add a line here.
+- title: Research
+  url: /research/
+- title: Publications
+  url: /publications/
+- title: People
+  url: /people/
+- title: Teaching & Service
+  url: /teaching/
+- title: Join us
+  url: /join/
+- title: CV
+  url: /cv/
+- title: Contact
+  url: /contact/
