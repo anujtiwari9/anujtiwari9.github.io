@@ -13,6 +13,7 @@ markdown: kramdown
 # Files that live in the repo but should not appear on the website.
 exclude:
   - README.md
+  - GUIDE.md
   - Gemfile
   - Gemfile.lock
   - vendor

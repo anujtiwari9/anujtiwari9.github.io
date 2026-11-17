@@ -52,3 +52,5 @@ Put your photo at `assets/img/profile.jpg` and set `photo: "/assets/img/profile.
 
 ## Changing the look
 Open `assets/css/style.css`. The block at the top (`:root`) holds all colours and fonts. Change a value there and every page follows. To change fonts, edit the Google Fonts link in `_layouts/default.html` and the `--display` and `--body` names in `style.css`.
+
+To show a photo or video on the home page too, add `home: true` to that media item.
