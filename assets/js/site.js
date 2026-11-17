@@ -1,6 +1,4 @@
-/* Mobile menu + the lab-floor animation on the home page.
-   Scene: lane robots carrying parcels, a platoon carrying a plank,
-   and a robot arm that picks a box and stacks it on a shelf. */
+/* Mobile menu + the warehouse-floor animation on the home page. */
 (function () {
   // ---- Mobile menu ----
   var btn = document.querySelector('.nav-toggle');
@@ -12,42 +10,29 @@
     });
   }
 
-  // ---- Hero canvas ----
+  // ---- Hero canvas: lane robots plus a platoon carrying a plank ----
   var c = document.getElementById('hero-canvas');
   if (!c || !c.getContext) return;
   var ctx = c.getContext('2d');
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var CELL = 60, TAPE = '#F0B323';      // change TAPE to match your accent colour
+  var CELL = 60, TAPE = '#F0B323';
   var W = 0, H = 0, agents = [], t = 0, last = 0, raf = 0;
-  var bx, by, L, B, P, Q, HOME;           // arm geometry
 
   function rnd(n) { return Math.floor(Math.random() * n); }
-  function ease(x) { x = Math.max(0, Math.min(1, x)); return x * x * (3 - 2 * x); }
-  function lerp(a, b, u) { return { x: a.x + (b.x - a.x) * u, y: a.y + (b.y - a.y) * u }; }
 
   function size() {
     var dpr = Math.min(window.devicePixelRatio || 1, 2);
     W = c.clientWidth; H = c.clientHeight;
     c.width = W * dpr; c.height = H * dpr;
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-
     var cols = Math.ceil(W / CELL) + 1, rows = Math.ceil(H / CELL) + 1;
-    var n = Math.max(8, Math.round(W * H / 30000));
+    var n = Math.max(8, Math.round(W * H / 24000));
     agents = [];
     for (var i = 0; i < n; i++) {
-      var a = { gx: rnd(cols), gy: rnd(rows), dx: 0, dy: 0, p: Math.random(),
-                v: .006 + Math.random() * .008, cols: cols, rows: rows, load: Math.random() < .5 };
-      if (Math.random() < .5) a.dx = Math.random() < .5 ? 1 : -1; else a.dy = Math.random() < .5 ? 1 : -1;
-      agents.push(a);
+      agents.push({ gx: rnd(cols), gy: rnd(rows), dx: Math.random() < .5 ? 1 : 0, dy: 0, p: Math.random(),
+                    v: .006 + Math.random() * .008, cols: cols, rows: rows });
+      var a = agents[i]; if (!a.dx) a.dy = Math.random() < .5 ? 1 : -1; else a.dx = Math.random() < .5 ? 1 : -1;
     }
-
-    // robot arm geometry
-    L = Math.min(H * .26, W * .13);
-    B = Math.max(14, L * .3);
-    bx = W * .62; by = H * .84;
-    P = { x: bx - L * 1.3, y: by - B / 2 - 4 };            // pick position (box centre)
-    Q = { x: bx + L * 1.25, y: by - L * .95 - B / 2 };     // place position, slot 0
-    HOME = { x: bx + L * .25, y: by - L * 1.45 };
     draw();
   }
 
@@ -62,100 +47,32 @@
   }
   function pos(a) { return { x: (a.gx + a.dx * a.p) * CELL, y: (a.gy + a.dy * a.p) * CELL }; }
 
-  // Platoon path: followers replay the leader's path with a delay.
+  // The platoon leader follows a smooth loop; followers replay the path with a delay,
+  // like decentralized robots that keep a flexible object from deforming.
   function path(s) {
-    return { x: W * .76 + W * .13 * Math.sin(s * .45), y: H * .24 + H * .1 * Math.sin(s * .9 + .6) };
-  }
-
-  // Two-link inverse kinematics, elbow up. Target is relative to the base.
-  function ik(tx, ty) {
-    var d = Math.hypot(tx, ty), mx = 2 * L * .999;
-    if (d > mx) { tx *= mx / d; ty *= mx / d; d = mx; }
-    var cs = Math.max(-1, Math.min(1, (d * d - 2 * L * L) / (2 * L * L)));
-    var q2 = Math.acos(cs), best = null;
-    [q2, -q2].forEach(function (q) {
-      var a1 = Math.atan2(ty, tx) - Math.atan2(L * Math.sin(q), L + L * Math.cos(q));
-      var ex = L * Math.cos(a1), ey = L * Math.sin(a1);
-      if (!best || ey < best.ey) best = { ex: ex, ey: ey, x: tx, y: ty };
-    });
-    return best;
-  }
-
-  // One pick-and-place cycle every 9 s.
-  function armState(s) {
-    var T = 9, k = Math.floor(s / T), u = s - k * T, tg, holding = false;
-    if (u < 1.4) tg = lerp(HOME, P, ease(u / 1.4));
-    else if (u < 1.9) tg = P;
-    else if (u < 3.9) { tg = lerp(P, Q, ease((u - 1.9) / 2.0)); holding = true; }
-    else if (u < 4.4) tg = Q;
-    else if (u < 6.2) tg = lerp(Q, HOME, ease((u - 4.4) / 1.8));
-    else tg = HOME;
-    if (u >= 1.7 && u < 3.95) holding = true;
-    return { tg: tg, holding: holding, u: u, slot: k % 3 };
-  }
-
-  function box(x, y, alpha) {
-    ctx.fillStyle = 'rgba(240,179,35,' + (0.22 * alpha) + ')';
-    ctx.strokeStyle = 'rgba(240,179,35,' + alpha + ')'; ctx.lineWidth = 1.5;
-    ctx.fillRect(x - B / 2, y - B / 2, B, B); ctx.strokeRect(x - B / 2, y - B / 2, B, B);
-  }
-
-  function drawArm(s) {
-    var st = armState(s);
-    // floor line and shelf
-    ctx.strokeStyle = 'rgba(255,255,255,.22)'; ctx.lineWidth = 2;
-    ctx.beginPath(); ctx.moveTo(bx - L * 2.1, by + 10); ctx.lineTo(bx + L * 2.1, by + 10); ctx.stroke();
-    ctx.strokeStyle = 'rgba(255,255,255,.35)';
-    ctx.beginPath(); ctx.moveTo(Q.x - B, Q.y + B / 2 + 2); ctx.lineTo(Q.x + B, Q.y + B / 2 + 2);
-    ctx.moveTo(Q.x, Q.y + B / 2 + 2); ctx.lineTo(Q.x, by + 10); ctx.stroke();
-    // stacked boxes already on the shelf
-    for (var i = 0; i < st.slot; i++) box(Q.x, Q.y - i * B, .7);
-    // box waiting at the pick position
-    if (st.u < 1.7) box(P.x, P.y, Math.min(1, st.u / .3) * .9);
-    // arm
-    var q = ik(st.tg.x - bx, st.tg.y - by);
-    var sx = bx, sy = by, ex = bx + q.ex, ey = by + q.ey, wx = bx + q.x, wy = by + q.y;
-    ctx.lineCap = 'round'; ctx.lineJoin = 'round';
-    ctx.strokeStyle = '#D8DEE4'; ctx.lineWidth = Math.max(6, L * .11);
-    ctx.beginPath(); ctx.moveTo(sx, sy); ctx.lineTo(ex, ey); ctx.lineTo(wx, wy); ctx.stroke();
-    ctx.fillStyle = '#2A323B'; ctx.strokeStyle = 'rgba(255,255,255,.4)'; ctx.lineWidth = 1.5;
-    ctx.fillRect(bx - L * .22, by - 2, L * .44, 12);
-    // gripper
-    var ang = Math.atan2(wy - ey, wx - ex), gap = st.holding ? B * .5 : B * .85, f = B * .55;
-    var nx = -Math.sin(ang), ny = Math.cos(ang), ax = Math.cos(ang), ay = Math.sin(ang);
-    ctx.strokeStyle = TAPE; ctx.lineWidth = 3;
-    ctx.beginPath();
-    ctx.moveTo(wx + nx * gap / 2 + ax * f, wy + ny * gap / 2 + ay * f); ctx.lineTo(wx + nx * gap / 2, wy + ny * gap / 2);
-    ctx.lineTo(wx - nx * gap / 2, wy - ny * gap / 2); ctx.lineTo(wx - nx * gap / 2 + ax * f, wy - ny * gap / 2 + ay * f);
-    ctx.stroke();
-    // joints
-    [[sx, sy], [ex, ey], [wx, wy]].forEach(function (j) {
-      ctx.fillStyle = '#1D232A'; ctx.strokeStyle = TAPE; ctx.lineWidth = 2;
-      ctx.beginPath(); ctx.arc(j[0], j[1], 6, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
-    });
-    // held box, or box just placed
-    if (st.holding) box(wx + ax * (f + B * .35), wy + ay * (f + B * .35), .95);
-    else if (st.u >= 3.95 && st.u < 6.2 || st.u >= 6.2) box(Q.x, Q.y - st.slot * B, .95);
+    return { x: W * .70 + W * .20 * Math.sin(s * .45), y: H * .52 + H * .26 * Math.sin(s * .9 + .6) };
   }
 
   function draw() {
     ctx.clearRect(0, 0, W, H);
+    // floor grid
     ctx.strokeStyle = 'rgba(255,255,255,.07)'; ctx.lineWidth = 1; ctx.beginPath();
     for (var x = 0; x <= W; x += CELL) { ctx.moveTo(x + .5, 0); ctx.lineTo(x + .5, H); }
     for (var y = 0; y <= H; y += CELL) { ctx.moveTo(0, y + .5); ctx.lineTo(W, y + .5); }
     ctx.stroke();
 
-    var P2 = agents.map(pos), i, j;
-    for (i = 0; i < P2.length; i++) for (j = i + 1; j < P2.length; j++) {
-      var d = Math.hypot(P2[i].x - P2[j].x, P2[i].y - P2[j].y);
+    var P = agents.map(pos), i, j;
+    // links between neighbouring robots
+    for (i = 0; i < P.length; i++) for (j = i + 1; j < P.length; j++) {
+      var d = Math.hypot(P[i].x - P[j].x, P[i].y - P[j].y);
       if (d < CELL * 2.4) {
-        ctx.strokeStyle = 'rgba(240,179,35,' + (0.3 * (1 - d / (CELL * 2.4))).toFixed(3) + ')';
-        ctx.beginPath(); ctx.moveTo(P2[i].x, P2[i].y); ctx.lineTo(P2[j].x, P2[j].y); ctx.stroke();
+        ctx.strokeStyle = 'rgba(240,179,35,' + (0.35 * (1 - d / (CELL * 2.4))).toFixed(3) + ')';
+        ctx.beginPath(); ctx.moveTo(P[i].x, P[i].y); ctx.lineTo(P[j].x, P[j].y); ctx.stroke();
       }
     }
-    for (i = 0; i < P2.length; i++) {
-      ctx.fillStyle = 'rgba(255,255,255,.55)'; ctx.fillRect(P2[i].x - 3, P2[i].y - 3, 6, 6);
-      if (agents[i].load) { ctx.strokeStyle = 'rgba(240,179,35,.75)'; ctx.lineWidth = 1.5; ctx.strokeRect(P2[i].x - 3, P2[i].y - 10, 6, 6); }
+    for (i = 0; i < P.length; i++) {
+      ctx.fillStyle = 'rgba(255,255,255,.55)';
+      ctx.fillRect(P[i].x - 3, P[i].y - 3, 6, 6);
     }
 
     // platoon carrying a plank
@@ -171,8 +88,6 @@
       ctx.fillStyle = i === 0 ? TAPE : '#fff';
       ctx.beginPath(); ctx.arc(bots[i].x, bots[i].y, 3, 0, Math.PI * 2); ctx.fill();
     }
-
-    drawArm(reduce ? 2.6 : t);
   }
 
   function loop(ts) {
