@@ -1,0 +1,55 @@
+# Videos and photos for the "In the lab" page. Newest or most important first within each theme.
+#
+# HOW TO FILL IN A TEMPLATE ENTRY
+#   YouTube:  put the part of the link after v= in  id:   (and keep type: youtube)
+#   MP4 file: upload to assets/video/, set  type: video  and  src: "/assets/video/your-file.mp4"
+#   Photo:    upload to assets/img/lab/, set  type: image  and  src: "/assets/img/lab/your-photo.jpg"
+# Entries with an empty id/src show a "Video coming soon" tile, so you can leave them as they are.
+#
+# theme:    manipulation | coordination | warehouses | networks  (which section it appears under)
+# featured: true  -> also shown on the home page (only once the video/photo is filled in)
+
+- title: "Peg-in-hole insertion with failure recovery"
+  caption: "Robot assembly under task uncertainty, with detection and recovery of failures."
+  theme: manipulation
+  type: youtube
+  id: ""
+  featured: true
+
+- title: "Robot-assisted incremental forming"
+  caption: "Force-controlled forming of a part with a robot arm."
+  theme: manipulation
+  type: youtube
+  id: ""
+
+- title: "Decentralized transport of a flexible plank"
+  caption: "A team of mobile robots carries an object together without communicating."
+  theme: coordination
+  type: youtube
+  id: ""
+  featured: true
+
+- title: "Cooperative manipulators in a shared workspace"
+  caption: "Two arms planning around each other."
+  theme: coordination
+  type: video
+  src: ""
+
+- title: "Warehouse task allocation (simulation)"
+  caption: "A fleet of mobile robots allocating tasks while managing battery levels."
+  theme: warehouses
+  type: youtube
+  id: ""
+  featured: true
+
+- title: "Vehicle platoon with delayed self-reinforcement"
+  caption: "Cohesive platoon behaviour under communication delays."
+  theme: networks
+  type: youtube
+  id: ""
+
+- title: "UAV formation flight"
+  caption: "Multi-UAV network holding formation."
+  theme: networks
+  type: youtube
+  id: ""

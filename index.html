@@ -60,12 +60,18 @@ permalink: /
 </section>
 
 {% assign picks = "" | split: "" %}
+{% for m in site.data.gallery %}
+  {% assign ok = false %}
+  {% if m.id and m.id != "" %}{% assign ok = true %}{% endif %}
+  {% if m.src and m.src != "" %}{% assign ok = true %}{% endif %}
+  {% if m.featured and ok %}{% assign picks = picks | push: m %}{% endif %}
+{% endfor %}
 {% for t in site.data.research %}{% for m in t.media %}{% if m.home %}{% assign picks = picks | push: m %}{% endif %}{% endfor %}{% endfor %}
 {% if picks.size > 0 %}
 <section class="section wrap">
   <div class="section-head">
     <h2>In the lab</h2>
-    <a class="more" href="{{ '/research/' | relative_url }}">More experiments →</a>
+    <a class="more" href="{{ '/lab/' | relative_url }}">All videos →</a>
   </div>
   {% include media.html items=picks %}
 </section>

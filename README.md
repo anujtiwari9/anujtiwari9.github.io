@@ -19,11 +19,13 @@ If the repo has any other name, set `baseurl: "/<repo-name>"` in `_config.yml`.
 | Papers and patents | `_data/publications.yml` (add at the top of its type) |
 | Students and alumni | `_data/team.yml` |
 | Courses | `_data/teaching.yml` |
+| Videos and photos ("In the lab" page) | `_data/gallery.yml` |
 | Talks and workshops | `_data/talks.yml` |
 | Menu items | `_data/navigation.yml` |
 | Join us page | `join.md` |
 | CV page | `cv.md` (same Markdown as your CV file) |
-| Colours and fonts | top of `assets/css/style.css` |
+| Colour scheme | `color_scheme` line in `_config.yml` (navy, teal, graphite, maroon, forest, warehouse) |
+| Fonts, custom colours | top and bottom of `assets/css/style.css` |
 
 Edit on github.com: open the file, click the pencil, change, then *Commit changes*. The site updates in about a minute.
 
@@ -51,6 +53,6 @@ Put your photo at `assets/img/profile.jpg` and set `photo: "/assets/img/profile.
 3. For long videos, upload to YouTube and use `type: youtube` with the video id instead. This keeps the repo small.
 
 ## Changing the look
-Open `assets/css/style.css`. The block at the top (`:root`) holds all colours and fonts. Change a value there and every page follows. To change fonts, edit the Google Fonts link in `_layouts/default.html` and the `--display` and `--body` names in `style.css`.
+Set `color_scheme` in `_config.yml` to navy, teal, graphite, maroon, forest or warehouse. For custom colours see the guide. To change fonts, edit the Google Fonts link in `_layouts/default.html` and the `--display` and `--body` names in `style.css`.
 
 To show a photo or video on the home page too, add `home: true` to that media item.

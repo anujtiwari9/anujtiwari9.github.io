@@ -26,6 +26,7 @@ Keep this open when you edit the site. Every task below says which file to open 
 | Students, alumni, their photos | `_data/team.yml` |
 | Courses | `_data/teaching.yml` |
 | Talks and workshops | `_data/talks.yml` |
+| Videos and photos on the "In the lab" page | `_data/gallery.yml` |
 | Menu at the top | `_data/navigation.yml` |
 | "Join us" page text | `join.md` |
 | CV page | `cv.md` |
@@ -166,26 +167,49 @@ The "In the lab" section appears only when at least one item has `home: true`.
 
 You can mix images and videos in one `media:` list. They appear in a grid under the theme's bullet points.
 
+## 4b. The "In the lab" videos page
+
+This page shows videos and photos grouped by research theme. Everything comes from one file: `_data/gallery.yml`. It already has seven template entries that show a "Video coming soon" tile. Fill them in whenever you have the videos.
+
+**To fill in a template entry**
+- *YouTube:* paste the part of the link after `v=` into `id:`.
+  ```yaml
+  - title: "Peg-in-hole insertion with failure recovery"
+    caption: "Robot assembly under task uncertainty."
+    theme: manipulation
+    type: youtube
+    id: "dQw4w9WgXcQ"        # <- fill this in
+    featured: true
+  ```
+- *MP4 file:* upload to `assets/video/`, then use `type: video` and `src: "/assets/video/your-file.mp4"`. Keep files under about 25 MB, or use YouTube instead.
+- *Photo:* upload to `assets/img/lab/`, then use `type: image` and `src: "/assets/img/lab/your-photo.jpg"`.
+
+**To add a new video:** copy any block in `gallery.yml`, change the title, caption and `theme` (manipulation, coordination, warehouses or networks), and fill in `id` or `src`.
+
+**To remove a template you don't need:** delete its whole block (from `- title:` to its last line).
+
+**Home page:** entries with `featured: true` also appear in an "In the lab" strip on the home page, but only once their `id` or `src` is filled in. Empty templates never show there.
+
 ## 5. Site-wide changes
 
 ### Colours and fonts
-Open `assets/css/style.css`. The block at the top (`:root`) holds all colours and fonts:
-```css
---floor: #EEF0F1;   /* page background */
---ink:   #1D232A;   /* text and dark sections */
---tape:  #F0B323;   /* accent (yellow) */
---steel: #2F5D7C;   /* links */
+**Pick a ready-made colour scheme (easiest).** Open `_config.yml` and change one line:
+```yaml
+color_scheme: navy
 ```
-Change a colour code and every page follows. Colour codes can be picked at any online colour picker (they look like `#2E86DE`).
+Choices: `navy` (default), `teal`, `graphite`, `maroon`, `forest`, `warehouse` (the original yellow look with the hazard stripe). Commit and refresh. The hero animation changes colour with it.
 
-Ready-made palettes:
-- Blue: `--floor:#F4F7FB; --ink:#0F2A47; --tape:#2E86DE; --steel:#1B5FA8`
-- Green: `--floor:#F2F5F1; --ink:#16301F; --tape:#6BBF59; --steel:#2D6A3E`
-- Orange: `--floor:#F6F3EF; --ink:#2A2118; --tape:#E8742A; --steel:#9C4A12`
+**Make your own scheme.** Open `assets/css/style.css`, copy one of the blocks at the bottom that starts `html[data-theme="teal"]`, rename it (for example `html[data-theme="mine"]`), change the colour codes, then set `color_scheme: mine`. The main ones are:
+```css
+--floor: #F4F6F9;   /* page background */
+--ink:   #0F2742;   /* headings, hero and footer background */
+--ink-rgb: 15, 39, 66;  /* same colour as ink, written as R, G, B */
+--tape:  #4FA3E3;   /* accent: buttons, underlines, icons */
+--steel: #1F5F99;   /* links */
+```
+Keep `--ink` dark and `--tape` bright so text stays readable on both.
 
-The home-page animation (robots on a lab floor and a robot arm stacking boxes) is drawn in `assets/js/site.js`. Its yellow is `TAPE` near the top of that file. Change it to match your new accent.
-
-To change fonts, replace the font names in the Google Fonts link in `_layouts/default.html` and the `--display` and `--body` lines in `style.css`.
+**Fonts.** Replace the font names in the Google Fonts link in `_layouts/default.html` and the `--display` and `--body` lines at the top of `style.css`.
 
 ### Home page headline and buttons
 Open `index.html`. The headline is the line starting `<h1>` inside the `hero-copy` block. Change only the words, not the `<` `>` tags.

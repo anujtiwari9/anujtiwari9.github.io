@@ -1,0 +1,16 @@
+---
+layout: page
+title: In the lab
+permalink: /lab/
+eyebrow: "Experiments and demos"
+lede: "Videos and photos from experiments in the Distributed Intelligence & Robotics Lab."
+---
+{% for t in site.data.research %}
+{% assign items = site.data.gallery | where: "theme", t.id %}
+{% if items.size > 0 %}
+<section class="gallery-group" id="{{ t.id }}">
+  <h2>{{ t.tag }}</h2>
+  {% include media.html items=items %}
+</section>
+{% endif %}
+{% endfor %}

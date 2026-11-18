@@ -1,18 +1,29 @@
-{% comment %}Shows photos and videos listed under "media:" for a research theme.{% endcomment %}
+{% comment %}
+Shows photos and videos. Used by the Research page, the home page and the "In the lab" page.
+An entry with no id / src yet is shown as a "Coming soon" tile, so you can add the real video later.
+{% endcomment %}
 {% if include.items %}
 <div class="media-grid">
   {% for m in include.items %}
+  {% assign ready = false %}
+  {% if m.type == "youtube" and m.id and m.id != "" %}{% assign ready = true %}{% endif %}
+  {% if m.type == "video" and m.src and m.src != "" %}{% assign ready = true %}{% endif %}
+  {% if m.type == "image" and m.src and m.src != "" %}{% assign ready = true %}{% endif %}
   <figure class="media">
-    {% if m.type == "image" %}
-      <img src="{{ m.src | relative_url }}" alt="{{ m.alt | default: m.caption }}" loading="lazy">
-    {% elsif m.type == "youtube" %}
-      <div class="embed"><iframe src="https://www.youtube-nocookie.com/embed/{{ m.id }}" title="{{ m.caption | default: 'Video' }}" loading="lazy" allowfullscreen></iframe></div>
-    {% elsif m.type == "video" %}
-      <video controls preload="metadata"{% if m.poster %} poster="{{ m.poster | relative_url }}"{% endif %}>
+    {% if ready and m.type == "image" %}
+      <img src="{{ m.src | relative_url }}" alt="{{ m.alt | default: m.title | default: m.caption }}" loading="lazy">
+    {% elsif ready and m.type == "youtube" %}
+      <div class="embed"><iframe src="https://www.youtube-nocookie.com/embed/{{ m.id }}" title="{{ m.title | default: m.caption | default: 'Video' }}" loading="lazy" allowfullscreen></iframe></div>
+    {% elsif ready and m.type == "video" %}
+      <video controls preload="metadata"{% if m.poster and m.poster != "" %} poster="{{ m.poster | relative_url }}"{% endif %}>
         <source src="{{ m.src | relative_url }}" type="video/mp4">
       </video>
+    {% else %}
+      <div class="ph" role="img" aria-label="Video coming soon"><span class="ph-play" aria-hidden="true"></span><b>Video coming soon</b></div>
     {% endif %}
-    {% if m.caption %}<figcaption>{{ m.caption }}</figcaption>{% endif %}
+    {% if m.title or m.caption %}
+    <figcaption>{% if m.title %}<strong>{{ m.title }}</strong>{% endif %}{% if m.caption %}<span>{{ m.caption }}</span>{% endif %}</figcaption>
+    {% endif %}
   </figure>
   {% endfor %}
 </div>

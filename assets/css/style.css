@@ -1,16 +1,21 @@
 /* ==========================================================================
-   Design tokens. Change colours and fonts here and the whole site follows.
-   Idea: a warehouse floor. Concrete grey surfaces, charcoal ink, and the
-   safety-tape yellow used to mark aisles, as a thin accent only.
+   Design tokens. Colours come from a named colour scheme.
+   To switch scheme, set  color_scheme: navy | teal | graphite | maroon | forest | warehouse
+   in _config.yml. To make your own, copy a block from the bottom of this file.
+   Fonts and widths are set here and apply to every scheme.
    ========================================================================== */
 :root {
-  --floor: #EEF0F1;      /* page background (concrete) */
+  /* Default scheme: navy */
+  --floor: #F4F6F9;      /* page background */
   --paper: #FFFFFF;      /* cards */
-  --ink: #1D232A;        /* text, dark sections */
-  --muted: #58636E;      /* secondary text */
-  --tape: #F0B323;       /* safety-tape yellow (accent) */
-  --steel: #2F5D7C;      /* links */
-  --line: #D3D9DE;       /* hairlines */
+  --ink: #0F2742;        /* headings, dark sections (hero, footer) */
+  --ink-rgb: 15, 39, 66; /* same colour as ink, as R, G, B (used for overlays) */
+  --muted: #55657A;      /* secondary text */
+  --tape: #4FA3E3;       /* accent: buttons, underlines, icons */
+  --steel: #1F5F99;      /* links */
+  --line: #D5DCE5;       /* hairlines */
+  --stripe: var(--tape); /* divider under the hero */
+  --stripe-h: 4px;       /* divider height */
 
   --display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
   --body: "Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
@@ -64,7 +69,7 @@ p { margin: 0 0 1em; }
 .hero { position: relative; background: var(--ink); color: #fff; overflow: hidden; }
 .hero canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
 .hero::before { content: ""; position: absolute; inset: 0; z-index: 1;
-  background: linear-gradient(90deg, rgba(29,35,42,.96) 0%, rgba(29,35,42,.88) 38%, rgba(29,35,42,.1) 75%); }
+  background: linear-gradient(90deg, rgba(var(--ink-rgb),.96) 0%, rgba(var(--ink-rgb),.88) 38%, rgba(var(--ink-rgb),.1) 75%); }
 .hero-copy { position: relative; z-index: 2; padding: 96px 20px 104px; max-width: var(--max); margin: 0 auto; }
 .hero-copy > * { max-width: 560px; }
 .hero .eyebrow { color: var(--tape); }
@@ -77,12 +82,12 @@ p { margin: 0 0 1em; }
 .btn-ghost { color: #fff; }
 .btn-ghost:hover { background: rgba(255,255,255,.12); color: #fff; }
 @media (max-width: 700px) {
-  .hero::before { background: rgba(29,35,42,.82); }
+  .hero::before { background: rgba(var(--ink-rgb),.88); }
   .hero-copy { padding: 64px 20px 72px; }
 }
 
-/* Safety-tape divider */
-.tape { height: 10px; background: repeating-linear-gradient(135deg, var(--tape) 0 14px, var(--ink) 14px 28px); }
+/* Divider under the hero */
+.tape { height: var(--stripe-h); background: var(--stripe); }
 
 /* ---------- Sections ---------- */
 .section { padding: 64px 0; }
@@ -182,3 +187,64 @@ p { margin: 0 0 1em; }
   .site-header, .site-footer, .tape { display: none; }
   body { background: #fff; }
 }
+
+/* ---------- Photos and videos on research themes ---------- */
+.media-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; margin: 1.4em 0 .4em; }
+.media { margin: 0; }
+.media img, .media video { width: 100%; display: block; border-radius: 3px; border: 1px solid var(--line); background: var(--ink); }
+.media .embed { position: relative; aspect-ratio: 16 / 9; }
+.media .embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; border-radius: 3px; }
+.media figcaption { font-size: .88rem; color: var(--muted); margin-top: 6px; line-height: 1.4; }
+
+/* ---------- Design refinements ---------- */
+.icon { display: grid; place-items: center; width: 46px; height: 46px; background: var(--ink); color: var(--tape); border-radius: 3px; margin-bottom: 16px; }
+a.card { display: block; color: inherit; text-decoration: none; transition: border-color .15s, box-shadow .15s; }
+a.card:hover { border-color: var(--ink); box-shadow: 0 6px 18px rgba(var(--ink-rgb),.1); color: inherit; }
+a.card:hover h3 { text-decoration: underline; text-decoration-color: var(--tape); text-decoration-thickness: 3px; text-underline-offset: 4px; }
+.chips { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; margin: 28px 0 0; padding: 0; }
+.chips a { display: inline-block; padding: 6px 13px; border: 1px solid rgba(255,255,255,.28); border-radius: 99px; color: #E6EBEF; text-decoration: none; font: 500 .78rem var(--mono); letter-spacing: .03em; }
+.chips a:hover { border-color: var(--tape); color: var(--tape); }
+.hero h1 { font-size: clamp(2.3rem, 5.4vw, 3.9rem); }
+.hero-copy { padding-top: 104px; padding-bottom: 96px; }
+.hero::before { background: linear-gradient(90deg, rgba(var(--ink-rgb),.96) 0%, rgba(var(--ink-rgb),.86) 36%, rgba(var(--ink-rgb),0) 66%); }
+.section-head h2 { position: relative; padding-bottom: 12px; }
+.section-head h2::after { content: ""; position: absolute; left: 0; bottom: 0; width: 44px; height: 4px; background: var(--tape); }
+.theme .icon { margin-bottom: 14px; }
+
+
+/* ==========================================================================
+   Colour schemes. Selected by color_scheme in _config.yml.
+   Each block sets the same variables as :root above.
+   ========================================================================== */
+html[data-theme="teal"] {
+  --floor: #F2F6F6; --ink: #0E2F34; --ink-rgb: 14, 47, 52; --muted: #536B6E;
+  --tape: #3CC4B5; --steel: #0F6A72; --line: #D0DDDD;
+}
+html[data-theme="graphite"] {
+  --floor: #F3F4F6; --ink: #111827; --ink-rgb: 17, 24, 39; --muted: #5B6472;
+  --tape: #60A5FA; --steel: #1D4ED8; --line: #D9DCE1;
+}
+html[data-theme="maroon"] {
+  --floor: #F7F5F4; --ink: #3A1018; --ink-rgb: 58, 16, 24; --muted: #6B5A57;
+  --tape: #D4A93C; --steel: #8A1F2F; --line: #E0D6D0;
+}
+html[data-theme="forest"] {
+  --floor: #F3F6F3; --ink: #12291C; --ink-rgb: 18, 41, 28; --muted: #566B5C;
+  --tape: #7BC96F; --steel: #1F6B3A; --line: #D3DDD4;
+}
+/* The original look: concrete grey, charcoal and safety-tape yellow with a hazard stripe. */
+html[data-theme="warehouse"] {
+  --floor: #EEF0F1; --ink: #1D232A; --ink-rgb: 29, 35, 42; --muted: #58636E;
+  --tape: #F0B323; --steel: #2F5D7C; --line: #D3D9DE;
+  --stripe: repeating-linear-gradient(135deg, #F0B323 0 14px, #1D232A 14px 28px); --stripe-h: 10px;
+}
+
+/* ---------- "In the lab" gallery ---------- */
+.gallery-group { margin-bottom: 40px; }
+.gallery-group h2 { margin-top: 0; }
+.media figcaption strong { display: block; color: var(--ink); font-size: .95rem; font-weight: 600; }
+.media figcaption span { display: block; }
+.ph { aspect-ratio: 16 / 9; background: var(--ink); border-radius: 3px; display: grid; place-content: center; justify-items: center; gap: 10px; color: rgba(255,255,255,.75); border: 1px solid var(--line); }
+.ph b { font: 500 .78rem var(--mono); letter-spacing: .08em; text-transform: uppercase; font-weight: 500; }
+.ph-play { width: 46px; height: 46px; border-radius: 50%; border: 2px solid var(--tape); position: relative; }
+.ph-play::after { content: ""; position: absolute; left: 18px; top: 13px; border-left: 14px solid var(--tape); border-top: 9px solid transparent; border-bottom: 9px solid transparent; }

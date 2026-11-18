@@ -8,6 +8,9 @@ lang: en
 url: ""
 baseurl: ""
 
+# Colour scheme: navy | teal | graphite | maroon | forest | warehouse
+color_scheme: maroon
+
 markdown: kramdown
 
 # Files that live in the repo but should not appear on the website.
