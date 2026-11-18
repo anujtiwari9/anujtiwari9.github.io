@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=JetBrains+Mono:wght@500&family=Public+Sans:wght@400;500;600&display=swap">
+  <link rel="icon" type="image/png" href="{{ '/assets/img/logo-mark.png' | relative_url }}">
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
 </head>
 <body>
@@ -15,9 +16,9 @@
 
   <header class="site-header">
     <div class="bar wrap">
-      <a class="brand" href="{{ '/' | relative_url }}">
-        <span class="brand-name">{{ site.data.profile.name }}</span>
-        <span class="brand-sub">{{ site.data.profile.lab_short }} · IIT Madras</span>
+      <a class="brand" href="{{ '/' | relative_url }}" aria-label="{{ site.data.profile.lab_short }} home">
+        <img class="brand-logo" src="{{ '/assets/img/logo-mark.png' | relative_url }}" alt="">
+        <span class="brand-name">{{ site.data.profile.lab_short }}</span>
       </a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
       <nav id="site-nav" class="site-nav" aria-label="Main">

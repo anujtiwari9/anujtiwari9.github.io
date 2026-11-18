@@ -53,7 +53,7 @@
     // robot arm geometry
     L = Math.min(H * .26, W * .13);
     B = Math.max(14, L * .3);
-    bx = W * .62; by = H * .84;
+    bx = W * .72; by = H * .84;
     P = { x: bx - L * 1.3, y: by - B / 2 - 4 };            // pick position (box centre)
     Q = { x: bx + L * 1.25, y: by - L * .95 - B / 2 };     // place position, slot 0
     HOME = { x: bx + L * .25, y: by - L * 1.45 };

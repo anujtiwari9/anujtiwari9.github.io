@@ -248,3 +248,14 @@ html[data-theme="warehouse"] {
 .ph b { font: 500 .78rem var(--mono); letter-spacing: .08em; text-transform: uppercase; font-weight: 500; }
 .ph-play { width: 46px; height: 46px; border-radius: 50%; border: 2px solid var(--tape); position: relative; }
 .ph-play::after { content: ""; position: absolute; left: 18px; top: 13px; border-left: 14px solid var(--tape); border-top: 9px solid transparent; border-bottom: 9px solid transparent; }
+
+/* ---------- Header logo and compact hero ---------- */
+.brand { flex-direction: row; align-items: center; gap: 12px; }
+.brand-logo { height: 42px; width: auto; display: block; }
+.brand-name { font: 700 1.3rem var(--display); letter-spacing: -.005em; }
+.hero-copy { padding-top: 60px; padding-bottom: 56px; }
+.hero-copy > * { max-width: 620px; }
+.hero h1 { font-size: clamp(1.9rem, 4.2vw, 3rem); margin-bottom: 16px; }
+.hero p.lede { font-size: 1.08rem; margin-bottom: 22px; }
+.chips { margin-top: 22px; }
+@media (max-width: 700px) { .hero-copy { padding-top: 44px; padding-bottom: 44px; } }

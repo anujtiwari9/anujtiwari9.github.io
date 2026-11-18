@@ -211,8 +211,11 @@ Keep `--ink` dark and `--tape` bright so text stays readable on both.
 
 **Fonts.** Replace the font names in the Google Fonts link in `_layouts/default.html` and the `--display` and `--body` lines at the top of `style.css`.
 
+### Change the logo
+The header shows the DIRo mark (`assets/img/logo-mark.png`) and the text "DIRo Lab" (from `lab_short` in `_data/profile.yml`). The full logo with the lab name is saved as `assets/img/logo-full.png` if you want to use it elsewhere. To replace the mark, upload a new image with the same file name, ideally a PNG with a transparent background, about 200 pixels tall.
+
 ### Home page headline and buttons
-Open `index.html`. The headline is the line starting `<h1>` inside the `hero-copy` block. Change only the words, not the `<` `>` tags.
+Open `index.html`. The headline is the lab name from `lab_name` in `_data/profile.yml`. The sentence under it is the paragraph with `class="lede"` in `index.html`; change only the words, not the `<` `>` tags.
 
 ### Add a menu item
 Add a block to `_data/navigation.yml`:
