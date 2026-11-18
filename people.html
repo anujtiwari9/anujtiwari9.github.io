@@ -5,6 +5,29 @@ permalink: /people/
 eyebrow: "DIRo Lab"
 lede: "Students and researchers in the Distributed Intelligence & Robotics Lab."
 ---
+
+<section class="section wrap">
+  <div class="about">
+    <div>
+      {% if site.data.profile.photo != "" %}
+      <img class="portrait" src="{{ site.data.profile.photo | relative_url }}" alt="Portrait of {{ site.data.profile.name }}">
+      {% else %}
+      <div class="portrait" aria-hidden="true">AT</div>
+      {% endif %}
+    </div>
+    <div>
+      <span class="eyebrow">About</span>
+      <h2>{{ site.data.profile.name }}</h2>
+      <p>{{ site.data.profile.bio }}</p>
+      <ul class="facts">
+        <li><b>Position</b>{{ site.data.profile.title }}, {{ site.data.profile.chair }}</li>
+        <li><b>Department</b>{{ site.data.profile.department }}, {{ site.data.profile.institute }}</li>
+        <li><b>Office</b>{{ site.data.profile.office }} · <a href="mailto:{{ site.data.profile.email }}">{{ site.data.profile.email }}</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
 {% for g in site.data.team %}
 <h2>{{ g.group }}</h2>
 <div class="people">
