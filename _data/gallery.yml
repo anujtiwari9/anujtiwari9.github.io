@@ -13,7 +13,7 @@
   caption: "Robot assembly under task uncertainty, with detection and recovery of failures."
   theme: manipulation
   type: video
-  src: "/assets/video/Bhavnashri_ICRA2027_VIDEO_FINAL.mp4"
+  src: "/video/Bhavnashri_ICRA2027_VIDEO_FINAL.mp4"
   featured: true
 
 # - title: "Robot-assisted incremental forming"
@@ -33,14 +33,14 @@
   caption: "TRACS: A Geometry-Aware Framework for Scalable Multi-Agent Path Finding in Warehouses"
   theme: coordination
   type: video
-  src: "/assets/video/Siddhant2027_RAL_Supplementary.mp4"
+  src: "/video/Siddhant2027_RAL_Supplementary.mp4"
   featured: true
 
 - title: "Warehouse task allocation (simulation)"
   caption: "Multi-Agent Feudal Networks for Warehouse Environment: A Hierarchical Reinforcement Learning Approach"
   theme: warehouses
   type: video
-  src: "/assets/video/MAFN_SimulationVideosV2.mp4"
+  src: "/video/MAFN_SimulationVideosV2.mp4"
 
 # - title: "Vehicle platoon with delayed self-reinforcement"
 #   caption: "Cohesive platoon behaviour under communication delays."
@@ -52,5 +52,5 @@
   caption: "Multi-UAV network coverage optimization using accelerated gradient descent."
   theme: networks
   type: video
-  src: "/assets/video/Advaith_ExperimentV3.mov"
+  src: "/video/Advaith_ExperimentV3.mov"
   featured: true
