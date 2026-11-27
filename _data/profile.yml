@@ -14,14 +14,14 @@ phone: "+91 44 2257 4659"
 office: "MES 102"
 
 # Optional: put a photo at assets/img/profile.jpg and set photo to "/assets/img/profile.jpg"
-photo: "/assets/img/AnujPic_2023_v1.jpeg"
+photo: ""
 
 # Fill in any of these URLs; empty ones are hidden automatically.
 links:
-  google_scholar: "https://scholar.google.com/citations?user=b-QNjPwAAAAJ&hl=en&oi=ao"
-  linkedin: "https://www.linkedin.com/in/anuj-tiwari96/"
+  google_scholar: ""
+  linkedin: ""
   github: ""
-  orcid: "https://orcid.org/0000-0003-3685-8888"
+  orcid: ""
   old_site: "https://sites.google.com/view/anujtiwariuw/home"
 
 # Short biography shown on the home page (plain text or simple HTML).

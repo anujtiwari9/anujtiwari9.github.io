@@ -15,15 +15,6 @@
   themes: [manipulation]
   featured: true
 
-  - type: preprint
-  year: 2026
-  title: "ORDER: A Fictitious-World Benchmark for Domain-Adaptive Embodied AI"
-  authors: "Sai Krishna Reddy Sathi, **Anuj Tiwari**"
-  venue: "arXiv:2609.22285"
-  link: "https://arxiv.org/abs/2609.22285"
-  themes: [manipulation]
-  featured: true
-
 # ---------- Journal papers ----------
 - type: journal
   year: 2025

@@ -12,45 +12,44 @@
 - title: "Peg-in-hole insertion with failure recovery"
   caption: "Robot assembly under task uncertainty, with detection and recovery of failures."
   theme: manipulation
-  type: video
-  src: "/video/Bhavnashri_ICRA2027_VIDEO_FINAL.mp4"
+  type: youtube
+  id: ""
   featured: true
 
-# - title: "Robot-assisted incremental forming"
-#   caption: "Force-controlled forming of a part with a robot arm."
-#   theme: manipulation
-#   type: youtube
-#   id: ""
+- title: "Robot-assisted incremental forming"
+  caption: "Force-controlled forming of a part with a robot arm."
+  theme: manipulation
+  type: youtube
+  id: ""
 
-# - title: "Decentralized transport of a flexible plank"
-#   caption: "A team of mobile robots carries an object together without communicating."
-#   theme: coordination
-#   type: youtube
-#   id: ""
-#   featured: true
+- title: "Decentralized transport of a flexible plank"
+  caption: "A team of mobile robots carries an object together without communicating."
+  theme: coordination
+  type: youtube
+  id: ""
+  featured: true
 
-- title: "Large scale fleet coordination for warehouse "
-  caption: "TRACS: A Geometry-Aware Framework for Scalable Multi-Agent Path Finding in Warehouses"
+- title: "Cooperative manipulators in a shared workspace"
+  caption: "Two arms planning around each other."
   theme: coordination
   type: video
-  src: "/video/Siddhant2027_RAL_Supplementary.mp4"
-  featured: true
+  src: ""
 
 - title: "Warehouse task allocation (simulation)"
-  caption: "Multi-Agent Feudal Networks for Warehouse Environment: A Hierarchical Reinforcement Learning Approach"
+  caption: "A fleet of mobile robots allocating tasks while managing battery levels."
   theme: warehouses
-  type: video
-  src: "/video/MAFN_SimulationVideosV2.mp4"
-
-# - title: "Vehicle platoon with delayed self-reinforcement"
-#   caption: "Cohesive platoon behaviour under communication delays."
-#   theme: networks
-#   type: youtube
-#   id: ""
-
-- title: "Accelerated Coverage Control"
-  caption: "Multi-UAV network coverage optimization using accelerated gradient descent."
-  theme: networks
-  type: video
-  src: "/video/Advaith_ExperimentV3.mov"
+  type: youtube
+  id: ""
   featured: true
+
+- title: "Vehicle platoon with delayed self-reinforcement"
+  caption: "Cohesive platoon behaviour under communication delays."
+  theme: networks
+  type: youtube
+  id: ""
+
+- title: "UAV formation flight"
+  caption: "Multi-UAV network holding formation."
+  theme: networks
+  type: youtube
+  id: ""
