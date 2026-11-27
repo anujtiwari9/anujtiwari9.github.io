@@ -5,9 +5,8 @@ permalink: /people/
 eyebrow: "DIRo Lab"
 lede: "Students and researchers in the Distributed Intelligence & Robotics Lab."
 ---
-
-<section class="section wrap">
-  <div class="about">
+<h2>Principal investigator</h2>
+<div class="about">
     <div>
       {% if site.data.profile.photo != "" %}
       <img class="portrait" src="{{ site.data.profile.photo | relative_url }}" alt="Portrait of {{ site.data.profile.name }}">
@@ -16,8 +15,7 @@ lede: "Students and researchers in the Distributed Intelligence & Robotics Lab."
       {% endif %}
     </div>
     <div>
-      <span class="eyebrow">About</span>
-      <h2>{{ site.data.profile.name }}</h2>
+      <h3>{{ site.data.profile.name }}</h3>
       <p>{{ site.data.profile.bio }}</p>
       <ul class="facts">
         <li><b>Position</b>{{ site.data.profile.title }}, {{ site.data.profile.chair }}</li>
@@ -26,7 +24,6 @@ lede: "Students and researchers in the Distributed Intelligence & Robotics Lab."
       </ul>
     </div>
   </div>
-</section>
 
 {% for g in site.data.team %}
 <h2>{{ g.group }}</h2>

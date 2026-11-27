@@ -19,7 +19,7 @@ Keep this open when you edit the site. Every task below says which file to open 
 
 | I want to change | Open this file |
 |---|---|
-| Name, email, phone, office, bio, my photo, profile links | `_data/profile.yml` |
+| Name, email, phone, office, bio (shown on the People page), my photo, profile links | `_data/profile.yml` |
 | News on the home page | `_data/news.yml` |
 | Research themes (text, bullet points, pictures, videos) | `_data/research.yml` |
 | Papers and patents | `_data/publications.yml` |
@@ -193,23 +193,15 @@ This page shows videos and photos grouped by research theme. Everything comes fr
 ## 5. Site-wide changes
 
 ### Colours and fonts
-**Pick a ready-made colour scheme (easiest).** Open `_config.yml` and change one line:
+**Pick a colour scheme (easiest).** Open `_config.yml` and change one line:
 ```yaml
-color_scheme: navy
+color_scheme: maroon
 ```
-Choices: `navy` (default), `teal`, `graphite`, `maroon`, `forest`, `warehouse` (the original yellow look with the hazard stripe). Commit and refresh. The hero animation changes colour with it.
+Choices: `maroon` (default), `navy`, `teal`, `forest`, `charcoal`. Each is white with one accent colour used for links, buttons and the active menu item. Commit and refresh.
 
-**Make your own scheme.** Open `assets/css/style.css`, copy one of the blocks at the bottom that starts `html[data-theme="teal"]`, rename it (for example `html[data-theme="mine"]`), change the colour codes, then set `color_scheme: mine`. The main ones are:
-```css
---floor: #F4F6F9;   /* page background */
---ink:   #0F2742;   /* headings, hero and footer background */
---ink-rgb: 15, 39, 66;  /* same colour as ink, written as R, G, B */
---tape:  #4FA3E3;   /* accent: buttons, underlines, icons */
---steel: #1F5F99;   /* links */
-```
-Keep `--ink` dark and `--tape` bright so text stays readable on both.
+**Make your own.** Open `assets/css/style.css`, copy one of the lines near the top that starts `html[data-theme="navy"]`, rename it (for example `html[data-theme="mine"]`), change the two colour codes, then set `color_scheme: mine`. `--accent` is the main colour and `--accent-dark` is the same colour a bit darker, used on hover.
 
-**Fonts.** Replace the font names in the Google Fonts link in `_layouts/default.html` and the `--display` and `--body` lines at the top of `style.css`.
+**Fonts.** The site uses one font, Inter. To change it, replace the font name in the Google Fonts link in `_layouts/default.html` and in the `--font` line at the top of `style.css`.
 
 ### Change the logo
 The header shows the DIRo mark (`assets/img/logo-mark.png`) and the text "DIRo Lab" (from `lab_short` in `_data/profile.yml`). The full logo with the lab name is saved as `assets/img/logo-full.png` if you want to use it elsewhere. To replace the mark, upload a new image with the same file name, ideally a PNG with a transparent background, about 200 pixels tall.

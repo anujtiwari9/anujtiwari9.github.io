@@ -8,7 +8,7 @@ lang: en
 url: ""
 baseurl: ""
 
-# Colour scheme: navy | teal | graphite | maroon | forest | warehouse
+# Colour scheme: maroon | navy | teal | forest | charcoal
 color_scheme: maroon
 
 markdown: kramdown

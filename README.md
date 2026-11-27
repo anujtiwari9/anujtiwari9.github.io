@@ -24,7 +24,7 @@ If the repo has any other name, set `baseurl: "/<repo-name>"` in `_config.yml`.
 | Menu items | `_data/navigation.yml` |
 | Join us page | `join.md` |
 | CV page | `cv.md` (same Markdown as your CV file) |
-| Colour scheme | `color_scheme` line in `_config.yml` (navy, teal, graphite, maroon, forest, warehouse) |
+| Colour scheme | `color_scheme` line in `_config.yml` (maroon, navy, teal, forest, charcoal) |
 | Fonts, custom colours | top and bottom of `assets/css/style.css` |
 
 Edit on github.com: open the file, click the pencil, change, then *Commit changes*. The site updates in about a minute.
@@ -53,6 +53,6 @@ Put your photo at `assets/img/profile.jpg` and set `photo: "/assets/img/profile.
 3. For long videos, upload to YouTube and use `type: youtube` with the video id instead. This keeps the repo small.
 
 ## Changing the look
-Set `color_scheme` in `_config.yml` to navy, teal, graphite, maroon, forest or warehouse. For custom colours see the guide. To change fonts, edit the Google Fonts link in `_layouts/default.html` and the `--display` and `--body` names in `style.css`.
+Set `color_scheme` in `_config.yml` to maroon, navy, teal, forest or charcoal. For custom colours see the guide. To change fonts, edit the Google Fonts link in `_layouts/default.html` and the `--display` and `--body` names in `style.css`.
 
 To show a photo or video on the home page too, add `home: true` to that media item.
