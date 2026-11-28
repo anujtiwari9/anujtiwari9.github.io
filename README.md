@@ -1,14 +1,4 @@
-# Faculty and lab website (GitHub Pages)
 
-Everything you edit is plain text. You never touch the design files.
-
-## Publish it
-1. Create a **public** GitHub repository named `<your-username>.github.io`.
-2. Upload everything in this folder (unzip first, then drag the files and folders in), including `_config.yml`, `_data`, `_layouts`, `_includes` and `assets`. Commit.
-3. Settings → Pages → Source: *Deploy from a branch* → `main` / root → Save.
-4. After 1–2 minutes the site is live at `https://<your-username>.github.io`.
-
-If the repo has any other name, set `baseurl: "/<repo-name>"` in `_config.yml`.
 
 ## Where to edit what
 | To change | Edit |
